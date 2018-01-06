@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Floral Tights</title>
+    <link rel="favicon" type="image/png" href="img/favicon.ico"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet" >
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <!-- body -->
+  <body>
+	  <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Floral Pattern Tights
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" id="product-images">
+					<img alt="Product Image" class="pull-right img-responsive" src="img/New-Charming-Fashion-Black-Sexy-Charming-Floral-Pattern-Fishnet-Pantyhose-Hot-Sale-2017.jpg_640x640.jpg">
+				</div>
+				<div class="col-md-6" id="content">
+					<div class="row">
+						<div class="col-xs-12">
+							<div id="rating">
+								<span class="fa fa-star fa-1x"></span>
+								<span class="fa fa-star fa-1x"></span>
+								<span class="fa fa-star fa-1x"></span>
+								<span class="fa fa-star fa-1x"></span>
+								<span class="fa fa-star-half-full fa-1x"></span>
+								31 Customer Reviews
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12"></div>
+					</div>
+					<div class="row" id="price">
+						<div class="col-xs-12">
+							<div id="new-price">£6.99</div>
+							<div id="original-price">£11.00</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<button class="btn btn-lg btn-success btn-block" id="purchaseButton">
+								BUY IT NOW!
+							</button>
+							<img alt="Product Image" class="img-responsive" src="img/trust-logos.png">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<p align="center">
+								<strong>** FREE SHIPPING TO UK & IRELAND **</strong>
+								<br>
+								<strong>** 30 Day Money Back Guarantee **</strong>
+							</p>
+							<p>
+								These tights are attractive and durable.
+								<br>
+								Polyester floral pattern.
+								<br>	
+								Key Features:
+								<ul>
+									<li>Easy to Clean Polyester</li>
+									<li>Durable to wear more than once</li>
+									<li>Attractive and looks good</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row" id="footer">
+				<div class="col-xs-12">
+					<div id="footer-content">
+						<div id="offer-ends">
+							Sale Ends Soon!
+						</div>
+						<div class="main-example" id="countdown-div">
+						  <div class="countdown-container" id="main-example"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Scripts -->
+	  <script src="js/jquery-3.2.1.min.js"></script>
+	  <script src="js/underscore-min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script src="js/jquery.countdown.min.js"></script>
+	  <script src="https://checkout.stripe.com/checkout.js"></script>
+	  <script src="js/scripts.js"></script>
+	  <script type="text/template" id="main-example-template">
+			<div class="time <%= label %>">
+			  <span class="count curr top"><%= curr %></span>
+			  <span class="count next top"><%= next %></span>
+			  <span class="count next bottom"><%= next %></span>
+			  <span class="count curr bottom"><%= curr %></span>
+			  <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+			</div>
+		</script>
+  </body>
+</html>
