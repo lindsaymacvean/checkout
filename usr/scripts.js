@@ -68,7 +68,7 @@ $(document).ready(function() {
 // Checkout
 var handler = StripeCheckout.configure({
   key: 'pk_test_yKxRubb8GeiTIElfdIItxUak',
-  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  image: 'https://longbackclothing.com/sexylegs/img/logo-128x128.png',
   locale: 'auto',
   token: function(token) {
     // You can access the token ID with `token.id`.
