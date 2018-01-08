@@ -66,5 +66,7 @@
 		$body = "Details: ".print_r($err)."\n";
 	}
 
+	mail($to, $subject, $body, $headers);
+
 	exit();
 ?>
