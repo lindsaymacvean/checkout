@@ -47,24 +47,21 @@
 	  $status = false;
 	}
 
-	$to = array(
-		"lindsaymacvean@gmail.com",
-		"lovemebabypink@yahoo.co.uk");
-	if(!$err) {
+	$to = "lindsaymacvean@gmail.com, lovemebabypink@yahoo.co.uk";
+	if(!isset($err)) {
 		$subject = "Order:".$charge->id;
 		$body = "Name: ".$shipping_name."\n";
-		$body += "Line 1: ".$shipping_address_line1."\n";
-		$body += "City: ".$shipping_address_city."\n";
-		$body += "Post Code: ".$shipping_address_zip."\n";
-		$body += "Country: ".$shipping_address_country."\n";
-		$body += "Quantity: ".$quantity."\n";
-		$body += "Order Total: ".$amount."\n";
+		$body .= "Line 1: ".$shipping_address_line1."\n";
+		$body .= "City: ".$shipping_address_city."\n";
+		$body .= "Post Code: ".$shipping_address_zip."\n";
+		$body .= "Country: ".$shipping_address_country."\n";
+		$body .= "Quantity: ".$quantity."\n";
+		$body .= "Order Total: ".$amount."\n";
 	} else {
 		$subject = "Order: Fail";
 		$body = "Details: ".print_r($err)."\n";
-
 	}
-	$headers = "From: .".$email."\r\n". "X-Mailer: php";
+	$headers = "From: .".$email."\r\n"."X-Mailer: php";
 	mail($to, $subject, $body, $headers);
 
 	header("HTTP/1.1 301 Moved Permanently"); 
