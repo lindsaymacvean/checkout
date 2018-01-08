@@ -22,7 +22,7 @@
   $shipping_address_city = $args->shipping_address_city;
   $shipping_address_zip = $args->shipping_address_zip;
   $shipping_address_country = $args->shipping_address_country;
-  $amount = 1 * $quantity;
+  $amount = 699 * $quantity;
   $status = false;
 
   try {
