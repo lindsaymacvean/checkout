@@ -76,6 +76,7 @@ h1 {
 
 #price div {
   margin: 5px;
+  line-height:25px;
 }
 
 #new-price {
@@ -101,6 +102,10 @@ h1 {
 
 #product-images {
   text-align: right;
+}
+
+#details {
+  text-align: center;
 }
 
 /**

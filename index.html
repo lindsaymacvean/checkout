@@ -42,16 +42,24 @@
 						<div class="col-xs-12"></div>
 					</div>
 					<div class="row" id="price">
-						<div class="col-xs-12">
-							<div id="new-price">£6.99</div>
-							<div id="original-price">£11.00</div>
+						<div class="col-xs-5">
+							<div id="new-price">€6.99</div>
+							<div id="original-price">€11.00</div>
+						</div>
+						<div class="col-xs-5">
+								<label for="quantity">Quantity:</label>
+								<input form="checkout" id="quantity" type="number" name="quantity" min="0" max="100" step="1" value="1">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
-							<button class="btn btn-lg btn-success btn-block" id="purchaseButton" action="https://longbackclothing.com/test.php" method="post">
-								BUY IT NOW!
-							</button>
+							<form id="checkout" action="charge.php" method="post">
+								<button class="btn btn-lg btn-success btn-block" id="purchaseButton">
+									BUY IT NOW!
+								</button>
+						    <input type="hidden" id="stripeToken" name="stripeToken"/>
+						    <input type="hidden" id="stripeArgs" name="stripeArgs"/>
+							</form>
 							<img alt="Product Image" class="img-responsive" src="img/trust-logos.png">
 						</div>
 					</div>

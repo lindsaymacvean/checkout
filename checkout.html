@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Floral Tights</title>
+    <link rel="favicon" type="image/png" href="img/favicon.ico"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet" >
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <!-- body -->
+  <body>
+	  <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Confirmed
+					</h1>
+          <br>
+          <div id="details"></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      // Checkout Confirmed
+      $(document).ready(function () {
+          if(window.location.href.indexOf("checkout.html") > -1) {
+            var amount = find_param('amount');
+            $('#details').text('Your card has been charged €'+amount/100);
+          }
+      });
+
+      function find_param( name, url ) {
+        if (!url) url = location.href;
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( url );
+        return results == null ? null : results[1];
+      }
+    </script>
+  </body>
+</html>

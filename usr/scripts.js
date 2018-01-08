@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	var labels = ['Days', 'Hours', 'Minutes', 'Seconds'],
-	  endDate = (new Date().getFullYear()) + '/01/07',
+	  endDate = (new Date().getFullYear()) + '/01/13',
 	  template = _.template($('#main-example-template').html()),
 	  currDate = '00:00:00:00',
 	  nextDate = '00:00:00:00',
@@ -71,24 +71,23 @@ var handler = StripeCheckout.configure({
   image: 'https://longbackclothing.com/sexylegs/img/logo/logo-128x128.png',
   locale: 'auto',
   token: function(token, args) {
-    // You can access the token ID with `token.id`.
-    // Get the token ID to your server-side code for use.
-    alert(JSON.stringify(token, null, 4));
-    alert(JSON.stringify(args, null, 4));
+    $("#stripeToken").val(JSON.stringify(token));
+    $("#stripeArgs").val(JSON.stringify(args));
+    // Quantity is a (non-json) int value passed from the form
+    $("#checkout").submit();
   }
 });
 
-document.getElementById('purchaseButton').addEventListener('click', function(e) {
+$('#purchaseButton').click(function(e) {
   // Open Checkout with further options:
   handler.open({
     name: 'Floral Tights',
-    description: '1 Pair @ 5.99',
+    description: $("#quantity").val() + ' tights',
     //currency: 'gbp',
     currency: 'eur',
-    amount: 599,
+    amount: 599 * $("#quantity").val(),
     //Buy button on second screen
     panelLabel: 'Pay',
-    label: 'Payy',
     allowRememberMe: false,
     billingAddress: true,
     shippingAddress: true
