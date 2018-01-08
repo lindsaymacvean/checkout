@@ -68,22 +68,29 @@ $(document).ready(function() {
 // Checkout
 var handler = StripeCheckout.configure({
   key: 'pk_test_yKxRubb8GeiTIElfdIItxUak',
-  image: 'https://longbackclothing.com/sexylegs/img/logo-128x128.png',
+  image: 'https://longbackclothing.com/sexylegs/img/logo/logo-128x128.png',
   locale: 'auto',
-  token: function(token) {
+  token: function(token, args) {
     // You can access the token ID with `token.id`.
     // Get the token ID to your server-side code for use.
-    console.log(token);
+    alert(JSON.stringify(token, null, 4));
+    alert(JSON.stringify(args, null, 4));
   }
 });
 
 document.getElementById('purchaseButton').addEventListener('click', function(e) {
   // Open Checkout with further options:
   handler.open({
-    name: 'Bennett Innovations',
-    description: '2 widgets',
-    currency: 'gbp',
-    amount: 2000,
+    name: 'Floral Tights',
+    description: '1 Pair @ 5.99',
+    //currency: 'gbp',
+    currency: 'eur',
+    amount: 599,
+    //Buy button on second screen
+    panelLabel: 'Pay',
+    label: 'Payy',
+    allowRememberMe: false,
+    billingAddress: true,
     shippingAddress: true
   });
   e.preventDefault();
