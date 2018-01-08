@@ -48,7 +48,7 @@
 	}
 
   header("HTTP/1.1 301 Moved Permanently"); 
-	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".$err:"")); 
+	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".urlencode($err):"")); 
 
 	$to = "lindsaymacvean@gmail.com";
 	$subject = "Order:".$charge->id;
