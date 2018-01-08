@@ -51,20 +51,19 @@
 	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".http_build_query($err.toString):"")); 
 
 	$to = "lindsaymacvean@gmail.com";
-	$subject = "Order:".$charge->id;
-	$body = "Name: ".$shipping_name."\n";
-	$body += "Line 1: ".$shipping_address_line1."\n";
-	$body += "City: ".$shipping_address_city."\n";
-	$body += "Post Code: ".$shipping_address_zip."\n";
-	$body += "Country: ".$shipping_address_country."\n";
-	$body += "Quantity: ".$quantity."\n";
-	$body += "Order Total: ".$amount."\n";
-	$headers = "From: .".$email."\r\n". "X-Mailer: php";
-
-	if (mail($to, $subject, $body)) {
-		echo("<p>".$charge->id." Order Email successfully sent!</p>");
+	if(!$err) {
+		$subject = "Order:".$charge->id;
+		$body = "Name: ".$shipping_name."\n";
+		$body += "Line 1: ".$shipping_address_line1."\n";
+		$body += "City: ".$shipping_address_city."\n";
+		$body += "Post Code: ".$shipping_address_zip."\n";
+		$body += "Country: ".$shipping_address_country."\n";
+		$body += "Quantity: ".$quantity."\n";
+		$body += "Order Total: ".$amount."\n";
+		$headers = "From: .".$email."\r\n". "X-Mailer: php";
 	} else {
-		echo("<p>".$charge->id." Order Email delivery failed…</p>");
+		$subject = "Order: Faile";
+		$body = "Details: ".print_r($err)."\n";
 	}
 
 	exit();
