@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 // Checkout
 var handler = StripeCheckout.configure({
-  key: 'pk_test_yKxRubb8GeiTIElfdIItxUak',
+  key: 'pk_live_enPcg3R1bsEdqmtJeH5mFyWL',
   image: 'https://longbackclothing.com/sexylegs/img/logo/logo-128x128.png',
   locale: 'auto',
   token: function(token, args) {
