@@ -16,8 +16,7 @@
 	  <div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center">
-						Confirmed
+					<h1 class="text-center" id="header">
 					</h1>
           <br>
           <div id="details"></div>
@@ -32,8 +31,15 @@
       // Checkout Confirmed
       $(document).ready(function () {
           if(window.location.href.indexOf("checkout.html") > -1) {
-            var amount = find_param('amount');
-            $('#details').text('Your card has been charged €'+amount/100);
+            var success = find_param('status');
+            if (success) {
+              $('#header').text('Purchase Confirmed');
+              var amount = find_param('amount');
+              $('#details').text('Your card has been charged €'+amount/100);
+            } else {
+              $('#header').text('Purchase Cancelled');
+              $('#details').text('Your card has NOT been charged');
+            }
           }
       });
 

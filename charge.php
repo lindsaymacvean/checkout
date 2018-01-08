@@ -47,7 +47,7 @@
 	  $status = false;
 	}
 
-  header("HTTP/1.1 301 Moved Permanently"); 
+	header("HTTP/1.1 301 Moved Permanently"); 
 	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".http_build_query($err.toString):"")); 
 
 	$to = "lindsaymacvean@gmail.com";
@@ -62,7 +62,7 @@
 		$body += "Order Total: ".$amount."\n";
 		$headers = "From: .".$email."\r\n". "X-Mailer: php";
 	} else {
-		$subject = "Order: Faile";
+		$subject = "Order: Fail";
 		$body = "Details: ".print_r($err)."\n";
 	}
 
