@@ -85,7 +85,7 @@ $('#purchaseButton').click(function(e) {
     description: $("#quantity").val() + ' tights',
     //currency: 'gbp',
     currency: 'eur',
-    amount: 599 * $("#quantity").val(),
+    amount: 699 * $("#quantity").val(),
     //Buy button on second screen
     panelLabel: 'Pay',
     allowRememberMe: false,

@@ -22,7 +22,7 @@
   $shipping_address_city = $args->shipping_address_city;
   $shipping_address_zip = $args->shipping_address_zip;
   $shipping_address_country = $args->shipping_address_country;
-  $amount = 599 * $quantity;
+  $amount = 1 * $quantity;
   $status = false;
 
   try {
@@ -49,5 +49,23 @@
 
   header("HTTP/1.1 301 Moved Permanently"); 
 	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".$err:"")); 
+
+	$to = "lindsaymacvean@gmail.com";
+	$subject = "Order:".$charge->id;
+	$body = "Name: ".$shipping_name."\n";
+	$body += "Line 1: ".$shipping_address_line1."\n";
+	$body += "City: ".$shipping_address_city."\n";
+	$body += "Post Code: ".$shipping_address_zip."\n";
+	$body += "Country: ".$shipping_address_country."\n";
+	$body += "Quantity: ".$quantity."\n";
+	$body += "Order Total: ".$amount."\n";
+	$headers = "From: .".$email."\r\n". "X-Mailer: php";
+
+	if (mail($to, $subject, $body)) {
+		echo("<p>".$charge->id." Order Email successfully sent!</p>");
+	} else {
+		echo("<p>".$charge->id." Order Email delivery failed…</p>");
+	}
+
 	exit();
 ?>
