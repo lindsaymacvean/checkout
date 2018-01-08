@@ -47,10 +47,9 @@
 	  $status = false;
 	}
 
-	header("HTTP/1.1 301 Moved Permanently"); 
-	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".http_build_query($err.toString):"")); 
-
-	$to = "lindsaymacvean@gmail.com";
+	$to = array(
+		"lindsaymacvean@gmail.com",
+		"lovemebabypink@yahoo.co.uk");
 	if(!$err) {
 		$subject = "Order:".$charge->id;
 		$body = "Name: ".$shipping_name."\n";
@@ -60,13 +59,16 @@
 		$body += "Country: ".$shipping_address_country."\n";
 		$body += "Quantity: ".$quantity."\n";
 		$body += "Order Total: ".$amount."\n";
-		$headers = "From: .".$email."\r\n". "X-Mailer: php";
 	} else {
 		$subject = "Order: Fail";
 		$body = "Details: ".print_r($err)."\n";
-	}
 
+	}
+	$headers = "From: .".$email."\r\n". "X-Mailer: php";
 	mail($to, $subject, $body, $headers);
+
+	header("HTTP/1.1 301 Moved Permanently"); 
+	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".http_build_query($err.toString):"")); 
 
 	exit();
 ?>
