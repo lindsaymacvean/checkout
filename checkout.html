@@ -9,6 +9,14 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" >
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112099774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112099774-1');
+    </script>
   </head>
 
   <!-- body -->
@@ -20,7 +28,6 @@
 					</h1>
           <br>
           <div id="details"></div>
-          <div></div>
         </div>
       </div>
     </div>
@@ -35,7 +42,10 @@
             if (success) {
               $('#header').text('Purchase Confirmed');
               var amount = find_param('amount');
-              $('#details').text('Your card has been charged €'+amount/100);
+              var id = find_param('id');
+              $('#details').html('Your card has been charged €'+(amount/100).toFixed(2)+
+                '<br>Your confirmation number is '+id+
+                '<br>An Email confirmation has been sent to you.');
             } else {
               $('#header').text('Purchase Cancelled');
               $('#details').text('Your card has NOT been charged');
