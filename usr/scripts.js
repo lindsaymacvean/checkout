@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	var labels = ['Days', 'Hours', 'Minutes', 'Seconds'],
-	  endDate = (new Date().getFullYear()) + '/01/13',
+	  endDate = (new Date().getFullYear()) + '/01/18',
 	  template = _.template($('#main-example-template').html()),
 	  currDate = '00:00:00:00',
 	  nextDate = '00:00:00:00',
