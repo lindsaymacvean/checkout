@@ -39,7 +39,7 @@
       $(document).ready(function () {
           if(window.location.href.indexOf("checkout.html") > -1) {
             var success = find_param('status');
-            if (success === 1) {
+            if (success === '1') {
               $('#header').text('Purchase Confirmed');
               var amount = find_param('amount');
               var id = find_param('id');
