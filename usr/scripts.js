@@ -1,8 +1,11 @@
-// Count Down Timer
+// General Variables
+itemValue = 699;
+currency = 'eur';
 
+// Count Down Timer
 $(document).ready(function() {
 	var labels = ['Days', 'Hours', 'Minutes', 'Seconds'],
-	  endDate = (new Date().getFullYear()) + '/01/18',
+	  endDate = (new Date().getFullYear()) + '/01/18	',
 	  template = _.template($('#main-example-template').html()),
 	  currDate = '00:00:00:00',
 	  nextDate = '00:00:00:00',
@@ -84,14 +87,25 @@ $('#purchaseButton').click(function(e) {
     name: 'Floral Tights',
     description: $("#quantity").val() + ' tights',
     //currency: 'gbp',
-    currency: 'eur',
-    amount: 699 * $("#quantity").val(),
+    currency: currency,
+    amount: itemValue * $("#quantity").val(),
     //Buy button on second screen
     panelLabel: 'Pay',
     allowRememberMe: false,
     billingAddress: true,
     shippingAddress: true
   });
+  fbq('track', 'AddToCart', {
+	    value: itemValue * $("#quantity").val(),
+	    currency: currency,
+	    contents: [
+	        {
+	            quantity: $("#quantity").val(),
+	            item_price: itemValue,
+	            id: '1683450431706443'
+	        }
+	    ],
+	  });
   e.preventDefault();
 });
 
