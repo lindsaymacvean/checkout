@@ -65,7 +65,7 @@
 	mail($to, $subject, $body, $headers);
 
 	header("HTTP/1.1 301 Moved Permanently"); 
-	header("Location: checkout.html?status=".urlencode($status)."id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"err=".http_build_query($err.toString):"")); 
+	header("Location: checkout.html?status=".urlencode($status)."&id=".urlencode($charge->id)."&amount=".urlencode($amount).($err?"&err=".http_build_query($err.toString):"")); 
 
 	exit();
 ?>
