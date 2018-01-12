@@ -67,7 +67,8 @@
               '<br>An Email confirmation has been sent to you.');
           } else {
             $('#header').text('Purchase Cancelled');
-            $('#details').text('Your card has NOT been charged');
+            $('#details').html('Your card has NOT been charged'+
+              '<br><a href="/">Return to Product</a>');
           }
           fbq('track', 'Purchase', {
             value: amount,
