@@ -57,7 +57,7 @@
 		$body .= "Post Code: ".$shipping_address_zip."\n";
 		$body .= "Country: ".$shipping_address_country."\n";
 		$body .= "Quantity: ".$quantity."\n";
-		$body .= "Order Total: ".$currency."".$amount/100."\n";
+		$body .= "Order Total: ".$currency.($amount/100)."\n";
 	} else {
 		$subject = "Order: Fail";
 		$body = "Details: ".print_r($err)."\n";
