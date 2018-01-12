@@ -82,6 +82,18 @@ var handler = StripeCheckout.configure({
 });
 
 $('#purchaseButton').click(function(e) {
+	e.preventDefault();
+	fbq('track', 'AddToCart', {
+    value: itemValue * $("#quantity").val(),
+    currency: currency,
+    contents: [
+        {
+            quantity: $("#quantity").val(),
+            item_price: itemValue,
+            id: '1683450431706443'
+        }
+    ],
+  });
   // Open Checkout with further options:
   handler.open({
     name: 'Floral Tights',
@@ -95,18 +107,6 @@ $('#purchaseButton').click(function(e) {
     billingAddress: true,
     shippingAddress: true
   });
-  fbq('track', 'AddToCart', {
-	    value: itemValue * $("#quantity").val(),
-	    currency: currency,
-	    contents: [
-	        {
-	            quantity: $("#quantity").val(),
-	            item_price: itemValue,
-	            id: '1683450431706443'
-	        }
-	    ],
-	  });
-  e.preventDefault();
 });
 
 // Close Checkout on page navigation:
