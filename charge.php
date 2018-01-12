@@ -22,6 +22,7 @@
   $shipping_address_city = $args->shipping_address_city;
   $shipping_address_zip = $args->shipping_address_zip;
   $shipping_address_country = $args->shipping_address_country;
+  $currency = 'Eur';
   $amount = 699 * $quantity;
   $status = false;
 
@@ -35,7 +36,7 @@
 	      'customer' => $customer->id,
 	      'amount'   => $amount,
 	      'description' => 'Floral Tights',
-	      'currency' => 'Eur'
+	      'currency' => $currency
 	  ));
 		
 		$status = true;
@@ -56,7 +57,7 @@
 		$body .= "Post Code: ".$shipping_address_zip."\n";
 		$body .= "Country: ".$shipping_address_country."\n";
 		$body .= "Quantity: ".$quantity."\n";
-		$body .= "Order Total: ".$amount."\n";
+		$body .= "Order Total: ".$currency."".$amount/100."\n";
 	} else {
 		$subject = "Order: Fail";
 		$body = "Details: ".print_r($err)."\n";
