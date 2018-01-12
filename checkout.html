@@ -38,12 +38,6 @@
 
   <!-- body -->
   <body>
-    <script>
-      fbq('track', 'Purchase', {
-        value: 6.99,
-        currency: 'eur',
-      });
-    </script>
 	  <div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -60,20 +54,25 @@
     <script type="text/javascript">
       // Checkout Confirmed
       $(document).ready(function () {
-          if(window.location.href.indexOf("checkout.html") > -1) {
-            var success = find_param('status');
-            if (success === '1') {
-              $('#header').text('Purchase Confirmed');
-              var amount = find_param('amount');
-              var id = find_param('id');
-              $('#details').html('Your card has been charged €'+(amount/100).toFixed(2)+
-                '<br>Your confirmation number is <strong>'+id+'</strong>'+
-                '<br>An Email confirmation has been sent to you.');
-            } else {
-              $('#header').text('Purchase Cancelled');
-              $('#details').text('Your card has NOT been charged');
-            }
+          var success = find_param('status');
+          amount = 0;
+          id = 0;
+          currency = 'eur';
+          if (success === '1') {
+            $('#header').text('Purchase Confirmed');
+            amount = find_param('amount');
+            id = find_param('id');
+            $('#details').html('Your card has been charged €'+(amount/100).toFixed(2)+
+              '<br>Your confirmation number is <strong>'+id+'</strong>'+
+              '<br>An Email confirmation has been sent to you.');
+          } else {
+            $('#header').text('Purchase Cancelled');
+            $('#details').text('Your card has NOT been charged');
           }
+          fbq('track', 'Purchase', {
+            value: amount,
+            currency: currency,
+          });
       });
 
       function find_param( name, url ) {
