@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [[ $# -lt 1 ]];
+if [ $# -lt 1 ];
   then
     echo "You need a commit message"
     exit 1
