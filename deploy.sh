@@ -12,7 +12,7 @@ git push origin master
 
 if [[ $2 == "update" ]]; then
 ssh ubuntu@longbackclothing.com << EOF
-  cd /var/www/html/misssexylegs
+  cd /var/www/html/uatmisssexylegs
   git pull origin master
   sudo chown -R ubuntu:www-data .
 EOF
