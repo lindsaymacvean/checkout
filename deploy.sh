@@ -17,3 +17,4 @@ ssh ubuntu@longbackclothing.com << EOF
   sudo chown -R ubuntu:www-data .
 EOF
 fi
+
