@@ -6,6 +6,8 @@ if [ "$#" -lt 1 ];
     exit 1
 fi
 
+grunt
+
 git add -A
 git commit -m "$1" 
 git push origin master
