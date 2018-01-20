@@ -1,5 +1,5 @@
 <?php
-require_once('vendor/autoload.php');
+require_once('../vendor/autoload.php');
 
 $stripe = array(
   "secret_key"      => getenv('secret_key'),
