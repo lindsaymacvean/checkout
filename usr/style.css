@@ -3,7 +3,8 @@
 */
 
 body {
-  background: #f3f0f3;
+  /*background: #f3f0f3;*/
+  background: rgb(255,192,180);
   color: #827f81;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
@@ -11,6 +12,11 @@ body {
 
 strong {
   color: black;
+}
+
+#header {
+  background-color: rgb(255,192,180);
+  text-align: center;
 }
 
 .container {

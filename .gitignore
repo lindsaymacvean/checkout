@@ -1,3 +1,7 @@
 bower_components
 node_modules
 vendor
+# exclude everything
+public/*
+# exception to the rule
+!public/.gitkeep
