@@ -16,6 +16,8 @@ if [[ $2 == "update" ]]; then
 ssh ubuntu@longbackclothing.com << EOF
   cd /var/www/html/uatmisssexylegs
   git pull origin master
+  npm install
+  bower install
   grunt 
   cd public
   sudo chown -R ubuntu:www-data .
